@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
+  <body class="bg">
+    <div id="app" class="app-container">
+      <div>
+        <h1 class="app-header">{{title}}</h1>
+      </div>
+      <div class="add-task">
+        <input
+          type="text"
+          placeholder="Add New Task"
+          class="task-input"
+          v-model="tasks.name"
+          @keyup.enter="addItem"
+        />
+        <input
+          type="submit"
+          title="Add Task"
+          class="submit-task"
+          @click="addItem"
+        />
+      </div>
+      <ul class="task-list">
+        <li v-for="task in tasks" class="task-list-item">
+          <label class="task-list-item-label">
+            <input type="checkbox" name="" id="" />
+            <span>{{task.name}}</span>
+          </label>
+          <span class="delete-btn" title="Delete Task" @click="delItem(task)">
+            {{task.del}}
+          </span>
+        </li>
+      </ul>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
